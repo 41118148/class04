@@ -3,7 +3,7 @@ from studentsapp.models import student
 
 def listone(request): 
 	try: 
-		unit = student.objects.get(cName="李采茜") #讀取一筆資料
+		unit = student.objects.get(cName="陳果") #讀取一筆資料
 	except:
   		errormessage = " (讀取錯誤!)"
 	return render(request, "listone.html", locals())

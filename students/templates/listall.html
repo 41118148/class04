@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>顯示所有資料</title>
-	</head>
-	<body>
-		<h2>顯示 student 資料表所有資料</h2>
-		<table border="1" cellpadding="0" cellspacing="0">
+{% extends 'base.html' %}
+{% block title %}<title>顯示所有資料</title>{% endblock %}
+{% block content %}
+<h2>顯示 student 資料表所有資料</h2>
+<table>
+	<thead>
+		<tr>
 			<th>編號</th><th>姓名</th><th>性別</th><th>生日</th>
 			<th>郵件帳號</th><th>電話</th><th>地址</th>
-			{% for student in students %}
-				<tr>
-					<td>{{ student.id }} </td>
-					<td>{{ student.cName }} </td>
-					<td>{{ student.cSex}} </td>
-					<td>{{ student.cBirthday }} </td>
-					<td>{{ student.cEmail }} </td>
-					<td>{{ student.cPhone}} </td>
-					<td>{{ student.cAddr }} </td>	
-				</tr>
-			{% endfor %}
-		</table>
-	</body>
-</html>
-	
+		</tr>
+	</thead>
+	<tbody>
+		{% for student in students %}
+		<tr>
+			<td data-label="編號">{{ student.id }}</td>
+			<td data-label="姓名">{{ student.cName }}</td>
+			<td data-label="性別">{{ student.cSex }}</td>
+			<td data-label="生日">{{ student.cBirthday }}</td>
+			<td data-label="郵件帳號">{{ student.cEmail }}</td>
+			<td data-label="電話">{{ student.cPhone }}</td>
+			<td data-label="地址">{{ student.cAddr }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
